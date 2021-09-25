@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -39,12 +40,12 @@ class RegisterActivity : AppCompatActivity() {
         database= FirebaseDatabase.getInstance()
         auth=FirebaseAuth.getInstance()
 
-        dbReference=database.reference.child("user")
+        dbReference=database.reference.child("usuario")
 
 
     }
 
-    fun register(view: View){
+    fun register(view:View){
         createNewAccount()
     }
     private fun createNewAccount(){
@@ -61,10 +62,11 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnCompleteListener(this){
                         task ->
                     if(task.isComplete){
-                        val user:FirebaseUser?=auth.currentUser
-                        verifyEmail(user)
+                        val usuario:FirebaseUser?=auth.currentUser
+                        verifyEmail(usuario)
 
-                        val userBD= user?.uid?.let { dbReference.child(it) }
+                    //Ingresa nombre y apellido a la BD
+                        val userBD= usuario?.uid?.let { dbReference.child(it) }
                         userBD?.child("Name")?.setValue(name)
                         userBD?.child("LastName")?.setValue(lastName)
                         action()
@@ -82,11 +84,11 @@ class RegisterActivity : AppCompatActivity() {
             ?.addOnCompleteListener(this){
                     task ->
                 if(task.isComplete){
-                    Toast.makeText(baseContext, "Correo enviado",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "El usuario fue registrado correctamente",
+                        Toast.LENGTH_LONG).show()
                 }else{
-                    Toast.makeText(baseContext, "Error al enviar el Correo",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Error al registrar el usuario",
+                        Toast.LENGTH_LONG).show()
                     progressBar.visibility=View.INVISIBLE
                 }
             }

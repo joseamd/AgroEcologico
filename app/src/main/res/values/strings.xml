@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">AgroEcologico</string>
+    <string name="mensajePantalla">Seleccione el tipo de unidad:</string>
+    <string-array name="listaUnidades">
+        <item>-Seleccione un item-</item>
+        <item>Libra</item>
+        <item>Kilo</item>
+        <item>Unidad</item>
+        <item>Pedazo</item>
+        <item>Panel Completo</item>
+        <item>Medio Panel</item>
+        <item>Paquete</item>
+        <item>Filete Salmonado</item>
+        <item>Filete completo</item>
+        <item>Atao</item>
+    </string-array>
 </resources>

@@ -41,7 +41,7 @@ class ForgotPassActivity : AppCompatActivity() {
                         startActivity(Intent(this, LoginActivity::class.java))
                     }else{
                         Toast.makeText(baseContext, "Error al enviar el Correo",
-                            Toast.LENGTH_SHORT).show()
+                            Toast.LENGTH_LONG).show()
                         progressBar.visibility=View.INVISIBLE
                     }
                 }

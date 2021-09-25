@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_actualizar_lista.xml" value="0.22" />
+        <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_adicion_unidad.xml" value="0.25" />
+        <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_admin.xml" value="0.33" />
+        <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_crear_puesto.xml" value="0.25" />
+        <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_editar_puesto.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_forgot_pass.xml" value="0.12590579710144928" />
+        <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_register.xml" value="0.18206521739130435" />
+        <entry key="..\:/Users/Alexander/AndroidStudioProjects/AgroEcologico/app/src/main/res/layout/activity_vendedor.xml" value="0.25" />
       </map>
     </option>
   </component>

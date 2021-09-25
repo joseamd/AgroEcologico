@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgroEcologico">
         <activity
+            android:name=".ActualizarListaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdicionUnidadActivity"
+            android:exported="true" />
+        <activity
+            android:name=".VendedorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditarPuestoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CrearPuestoActivity"
+            android:exported="true" />
+        <activity
             android:name=".ForgotPassActivity"
             android:exported="true" />
         <activity

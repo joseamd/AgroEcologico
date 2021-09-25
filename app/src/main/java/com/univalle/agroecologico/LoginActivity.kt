@@ -1,13 +1,16 @@
 package com.univalle.agroecologico
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.KeyEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
@@ -53,13 +56,29 @@ class LoginActivity : AppCompatActivity() {
                         action()
                     }else{
                         Toast.makeText(baseContext, "Correo o contraseña incorectos.",
-                            Toast.LENGTH_SHORT).show()
+                            Toast.LENGTH_LONG).show()
                         progressBar.visibility=View.INVISIBLE
                     }
                 }
         }
     }
     private fun action(){
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, VendedorActivity::class.java))
+        onRestart();
     }
+
+    override fun  onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            AlertDialog.Builder(this)
+                .setTitle("")
+                .setMessage("¿Desea salir de Agroecológico?")
+                .setPositiveButton("Si",
+                    DialogInterface.OnClickListener  { dialog, which  ->
+                        finish()
+                    })
+                .setNegativeButton("Cancelar",
+                    DialogInterface.OnClickListener  { dialog, which  ->
+                        dialog.dismiss() })
+                .show() }
+        return super.onKeyDown(keyCode, event) }
 }
