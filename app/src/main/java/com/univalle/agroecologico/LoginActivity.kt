@@ -1,11 +1,9 @@
 package com.univalle.agroecologico
 
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.KeyEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -63,22 +61,18 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun action(){
-        startActivity(Intent(this, VendedorActivity::class.java))
-        onRestart();
+        startActivity(Intent(this, AdminActivity::class.java))
+        finish()
     }
 
-    override fun  onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
-        if(keyCode==KeyEvent.KEYCODE_BACK){
-            AlertDialog.Builder(this)
-                .setTitle("")
-                .setMessage("¿Desea salir de Agroecológico?")
-                .setPositiveButton("Si",
-                    DialogInterface.OnClickListener  { dialog, which  ->
-                        finish()
-                    })
-                .setNegativeButton("Cancelar",
-                    DialogInterface.OnClickListener  { dialog, which  ->
-                        dialog.dismiss() })
-                .show() }
-        return super.onKeyDown(keyCode, event) }
+    //si el usuario ya se ha registrado, automaticamente se direcciona al activity principal
+    override fun onStart() {
+        super.onStart()
+        if(auth.currentUser != null){
+            startActivity(Intent(this, AdminActivity::class.java))
+            finish()
+        }
+    }
+
+
 }

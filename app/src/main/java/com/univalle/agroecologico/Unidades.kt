@@ -6,10 +6,12 @@ class Unidades {
     var price: String
     var selection: String
 
+
     constructor(nameUnit:String, price: String, selection: String) {
 
         this.nameUnit = nameUnit
         this.price = price
         this.selection = selection
+
     }
 }

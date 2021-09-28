@@ -42,7 +42,6 @@ class RegisterActivity : AppCompatActivity() {
 
         dbReference=database.reference.child("usuario")
 
-
     }
 
     fun register(view:View){
@@ -78,6 +77,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun action(){
         val intent = Intent(this,LoginActivity::class.java)
         startActivity(intent)
+        finish()
     }
     private fun verifyEmail(user:FirebaseUser?){
         user?.sendEmailVerification()

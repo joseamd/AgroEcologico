@@ -11,8 +11,8 @@ class PuestoVenta {
         this.namePuesto = namePuesto
         this.cedula = cedula
         this.password = password
-        this.celular = password
-        this.email = password
+        this.celular = celular
+        this.email = email
 
     }
 }
