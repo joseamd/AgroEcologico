@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AgroEcologico</string>
     <string name="mensajePantalla">Seleccione el tipo de unidad:</string>
+
     <string-array name="listaUnidades">
         <item>-Seleccione un item-</item>
         <item>Libra</item>

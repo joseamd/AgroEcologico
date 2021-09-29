@@ -71,10 +71,8 @@ class AdicionUnidadActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 100 && resultCode== RESULT_OK){
-            println("llego aqui")
             ImageUri = data?.data!!
             firebaseImage.setImageURI(ImageUri);
-
         }
     }
 

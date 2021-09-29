@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun action(){
-        startActivity(Intent(this, AdminActivity::class.java))
+        startActivity(Intent(this, VendedorActivity::class.java))
         finish()
     }
 
@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(auth.currentUser != null){
-            startActivity(Intent(this, AdminActivity::class.java))
+            startActivity(Intent(this, VendedorActivity::class.java))
             finish()
         }
     }

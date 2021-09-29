@@ -2,16 +2,17 @@ package com.univalle.agroecologico
 
 class Unidades {
 
-    var nameUnit: String
+    var nameUnid: String
     var price: String
     var selection: String
 
 
-    constructor(nameUnit:String, price: String, selection: String) {
+    constructor(nameUnid:String, priceUnid: String, selection: String) {
 
-        this.nameUnit = nameUnit
-        this.price = price
+        this.nameUnid = nameUnid
+        this.price = priceUnid
         this.selection = selection
+
 
     }
 }
