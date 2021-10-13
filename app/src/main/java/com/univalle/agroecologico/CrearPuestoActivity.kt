@@ -71,7 +71,7 @@ class CrearPuestoActivity : AppCompatActivity() {
 
     }
     private fun action(){
-        val intent = Intent(this,CrearPuestoActivity::class.java)
+        val intent = Intent(this,AdminActivity::class.java)
         startActivity(intent)
         finish();
     }

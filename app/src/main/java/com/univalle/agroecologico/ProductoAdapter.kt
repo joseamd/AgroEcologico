@@ -5,15 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.firebase.database.ValueEventListener
 import com.univalle.agroecologico.databinding.ItemListaBinding
 
-class ProductoAdapter (private val dataSetProductos: List<Producto>): RecyclerView.Adapter<ProductoAdapter.ViewHolder>() {
+class ProductoAdapter(private val dataSetProductos: List<Producto>, private val listener: OnClickListener): RecyclerView.Adapter<ProductoAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
     inner class ViewHolder(view: View) :  RecyclerView.ViewHolder(view){
         val viewBinding = ItemListaBinding.bind(view)
-
+        fun setListener(producto:Producto){
+            viewBinding.root.setOnClickListener {
+                listener.onClick(producto)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,12 +29,23 @@ class ProductoAdapter (private val dataSetProductos: List<Producto>): RecyclerVi
         return ViewHolder(view)
     }
 
+
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val producto =dataSetProductos.get(position)
         with(holder){
+            setListener(producto)
+            viewBinding.tvId.text = producto.codigo
             viewBinding.tvNameProduct.text = producto.name
             viewBinding.tvPrecio.text = producto.precio
             viewBinding.tvUnidadProduct.text = producto.item
+
+            Glide.with(context)
+                .load(producto.url) //cual es la url que debe cargar
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
+                .circleCrop()
+                .into(viewBinding.ivImageProduct)//en donde lo vamos a cargar
 
         }
 

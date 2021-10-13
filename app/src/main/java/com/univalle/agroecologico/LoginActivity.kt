@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(auth.currentUser != null){
-            startActivity(Intent(this, VendedorActivity::class.java))
+            startActivity(Intent(this, AdminActivity::class.java))
             finish()
         }
     }

@@ -3,79 +3,79 @@ package com.univalle.agroecologico
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Spinner
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.univalle.agroecologico.databinding.ActivityActualizarListaBinding
 
-class ActualizarListaActivity : AppCompatActivity() {
+
+class ActualizarListaActivity : AppCompatActivity(), OnClickListener {
 
     private lateinit var productoAdapter: ProductoAdapter
     private lateinit var linearLayoutManager: RecyclerView.LayoutManager
     private lateinit var viewBinding: ActivityActualizarListaBinding
-
     private lateinit var dbReference:DatabaseReference
-    private lateinit var database:FirebaseDatabase
-    private lateinit var auth:FirebaseAuth
+    var c=0
+    val productos = mutableListOf<Producto>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityActualizarListaBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        productoAdapter = ProductoAdapter(mutableListOf())
+        getProductosFromFirebase()
+        //productoAdapter = ProductoAdapter(productos,this)
         linearLayoutManager = LinearLayoutManager(this)
-        viewBinding.rvListaProductos.apply {
-            layoutManager = linearLayoutManager
-            adapter = productoAdapter
-
-
-            //Creamos la instancia para la base de datos y la autenticación
-            database = FirebaseDatabase.getInstance()
-            auth = FirebaseAuth.getInstance()
-            dbReference = database.reference.child("Unidad")
-
-        }
-    }
-
-    private fun getProductos():MutableList<Producto>{
-        val productos = mutableListOf<Producto>()
-
-        val arroz = Producto("Arroz Diana", "$2.000", "libra")
-        val frijol = Producto("Frijol Diana", "$2.500", "libra")
-        val huevos = Producto("Huevos AAA", "$10.500", "Panel Completo")
-        val pezcado = Producto("Trucha", "$15.500", "Filete completo")
-
-        productos.add(arroz)
-        productos.add(frijol)
-        productos.add(huevos)
-        productos.add(pezcado)
-        productos.add(arroz)
-        productos.add(frijol)
-        productos.add(huevos)
-        productos.add(pezcado)
-
-        return productos
 
     }
 
+     private fun getProductosFromFirebase(){
 
-    fun ActualizarUnidad(view:View){
-        actualizarUnidad()
+        dbReference = FirebaseDatabase.getInstance().getReference("Unidad")
+
+        dbReference.addValueEventListener(object : ValueEventListener{
+             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+
+                    for (dataSnapshot in dataSnapshot.getChildren()) {
+                        c=c+1
+                        var codigo = c.toString()
+                        var name =  dataSnapshot.child("nameUnid").getValue(String::class.java)
+                        var price = dataSnapshot.child("price").getValue(String::class.java)
+                        var selection = dataSnapshot.child("selection").getValue(String::class.java)
+                        //var url = dataSnapshot.child("url").getValue(String::class.java)
+                        var url = "data:image/jpeg;base64,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"
+
+
+                        var prod = Producto(codigo!!, name!!, price!!, selection!!, url!!)
+                        productos.add(prod)
+
+                    }
+                    productoAdapter = ProductoAdapter(productos,this@ActualizarListaActivity)
+                    viewBinding.rvListaProductos.apply {
+                        layoutManager = linearLayoutManager
+                        adapter = productoAdapter
+
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
     }
 
-    private fun actualizarUnidad(){
-        val intent = Intent(this,CrearPuestoActivity::class.java)
+
+    override fun onClick(producto: Producto) {
+        val intent = Intent(this,EditarUnidadActivity::class.java)
+        intent.putExtra("Dato1", producto.getFullCodigo())
+        intent.putExtra("Dato2", producto.getFullName())
+        intent.putExtra("Dato3", producto.getFullPrice())
+
+
         startActivity(intent)
         finish()
     }

@@ -11,30 +11,42 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.univalle.agroecologico.adapters.viewPagerAdapter
+import com.univalle.agroecologico.databinding.ActivityAdminBinding
+import com.univalle.agroecologico.fragmentos.Crear_Producto_Fragment
+import com.univalle.agroecologico.fragmentos.Crear_Puesto_Fragment
+
 
 class AdminActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var mainBinding: ActivityAdminBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin)
+        mainBinding = ActivityAdminBinding.inflate(layoutInflater)
+        setContentView(mainBinding.root)
+        setUpTabs()
 
         auth= FirebaseAuth.getInstance()
 
     }
 
+    private fun setUpTabs() {
+        val adapter = viewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(Crear_Puesto_Fragment(),"Crear Puesto")
+        adapter.addFragment(Crear_Producto_Fragment(),"Crear Producto")
+        mainBinding.ViewPager.adapter=adapter
+        mainBinding.tabLayout.setupWithViewPager(mainBinding.ViewPager)
+    }
+
+
+    //cerrar el logueo
     fun signOut(view:View){
         cerrarSesion()
-    }
-
-
-    fun crearPuestoVenta(view: View){
-        crearPuesto()
-    }
-    fun crearUnidad(view: View){
-        crearUnidades()
     }
 
     private fun cerrarSesion() {
@@ -43,12 +55,6 @@ class AdminActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun crearPuesto(){
-        startActivity(Intent(this, CrearPuestoActivity::class.java))
-    }
-    private fun crearUnidades(){
-        startActivity(Intent(this, AdicionUnidadActivity::class.java))
-    }
 
     override fun  onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
 

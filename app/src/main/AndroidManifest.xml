@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgroEcologico">
         <activity
+            android:name=".EditarUnidadActivity"
+            android:exported="true" />
+        <activity
             android:name=".ActualizarListaActivity"
             android:exported="true" />
         <activity

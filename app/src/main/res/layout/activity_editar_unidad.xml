@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditarUnidadActivity"
+    tools:ignore="MissingClass"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txtCodeUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:ems="10"
+                android:hint="Código Unidad"
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txtNameUnidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="32dp"
+                    android:ems="10"
+                    android:hint="Nombre Unidad"
+                    android:inputType="textPersonName"
+                    ></EditText>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
+
+                <EditText
+                    android:id="@+id/txtPrecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="32dp"
+                    android:ems="10"
+                    android:hint="Precio"
+                    android:inputType="textPersonName"></EditText>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/listaUnidades"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginEnd="32dp"
+                        android:entries="@array/listaUnidades"></Spinner>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/selectImageBtn"
+                            android:layout_width="140dp"
+                            android:layout_height="65dp"
+                            android:layout_marginVertical="42dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+
+                            android:text="Seleccionar Imagen"></Button>
+
+                        <ImageView
+                            android:id="@+id/firebaseImage"
+                            android:layout_width="80dp"
+                            android:layout_height="110dp"
+                            android:layout_margin="20dp"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginLeft="200dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:scaleType="centerCrop"
+                            tools:srcCompat="@android:drawable/ic_menu_gallery" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btnRegisterUnidad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginTop="10dp"
+
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginRight="32dp"
+                            android:background="@color/colorTitle"
+                            android:onClick="createNewUnidad"
+                            android:text="Actualizar"
+                            android:textColor="@android:color/white"></Button>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+</LinearLayout>
