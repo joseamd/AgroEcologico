@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "253311057822",
+    "firebase_url": "https://agro-app-movil-default-rtdb.firebaseio.com",
     "project_id": "agro-app-movil",
     "storage_bucket": "agro-app-movil.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "253311057822-imrkscru5h2cekestf5qj7ohst32tfl3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.univalle.agroAppMovil",
+            "certificate_hash": "28333c8066186d0f7cbfca050b17250c468640c7"
+          }
+        },
         {
           "client_id": "253311057822-6tv56g3mvmri1s6vmskel3sbj9bju55p.apps.googleusercontent.com",
           "client_type": 3
@@ -42,6 +51,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "253311057822-c6a2bjgbve4mmkfe19b0e9lqbvnm2q2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.univalle.agroecologico",
+            "certificate_hash": "28333c8066186d0f7cbfca050b17250c468640c7"
+          }
+        },
         {
           "client_id": "253311057822-6tv56g3mvmri1s6vmskel3sbj9bju55p.apps.googleusercontent.com",
           "client_type": 3

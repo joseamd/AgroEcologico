@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.univalle.agroecologico">
+    package="com.univalle.agroAppMovil">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,13 +17,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgroEcologico">
         <activity
+            android:name=".CarritoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ListaCompraActivity"
+            android:exported="true" />
+        <activity
             android:name=".EditarUnidadActivity"
             android:exported="true" />
         <activity
             android:name=".ActualizarListaActivity"
             android:exported="true" />
         <activity
-            android:name=".AdicionUnidadActivity"
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
             android:name=".VendedorActivity"
@@ -40,12 +56,33 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginClienteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
     </application>

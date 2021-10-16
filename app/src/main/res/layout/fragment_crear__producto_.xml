@@ -103,7 +103,7 @@
                         android:text="Seleccionar Imagen"></Button>
 
                     <ImageView
-                        android:id="@+id/firebaseImage"
+                        android:id="@+id/firebaseImagePro"
                         android:layout_width="72dp"
                         android:layout_height="64dp"
                         android:layout_margin="20dp"
